@@ -63,7 +63,7 @@ gcc main.c -o traffic -lpthread
 * **Sanjana Sirimalla** 
 * **V Gayathri** 
 * **Hari Hansika** 
-* **Likhitha** 
+* **Lasya** 
 
 **Possible Enhancements**
 * Add priority for emergency vehicles
