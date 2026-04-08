@@ -79,5 +79,5 @@ gcc main.c -o traffic -lpthread
 **Conclusion**
 This project demonstrates how semaphores can be used to control access to shared resources and manage synchronization in concurrent systems. It provides a clear understanding of how traffic systems can be modeled using OS concepts.
 
-**License**
-This project is for academic purposes only.
+**Note**
+This project is for academic purposes only and is being improved.
