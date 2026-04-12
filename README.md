@@ -34,7 +34,13 @@ Semaphores (semaphore.h)
 ```
 traffic-light/
 │
-├── main.c              # Main implementation
+├── include
+|    ├──common.h 
+├──src
+|    ├──controller.c
+|    ├──main.c
+|    ├──member1_semaphore.c
+|    ├──member2_traffic.c
 ├── README.md           # Project documentation
 ```
 **Working Principle**
