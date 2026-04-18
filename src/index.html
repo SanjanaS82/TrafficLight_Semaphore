@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Traffic Intersection — Semaphore Simulator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="header-left">
+        <div class="logo-mark">
+          <span class="logo-h">H</span><span class="logo-v">V</span>
+        </div>
+        <div>
+          <h1>Traffic Semaphore</h1>
+          <p class="subtitle">Real-time intersection simulator</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <div class="status-pill" id="signal-pill">NS GREEN</div>
+      </div>
+    </header>
+
+    <main>
+      <div class="left-panel">
+        <!-- Stats -->
+        <div class="panel-block">
+          <div class="panel-title">Vehicle Count</div>
+          <div class="stats-grid">
+            <div class="stat-card ns">
+              <div class="stat-dir">
+                <span class="dir-arrow">&#8593;</span> North
+              </div>
+              <div class="stat-num" id="stat-north">0</div>
+            </div>
+            <div class="stat-card ns">
+              <div class="stat-dir">
+                <span class="dir-arrow">&#8595;</span> South
+              </div>
+              <div class="stat-num" id="stat-south">0</div>
+            </div>
+            <div class="stat-card ew">
+              <div class="stat-dir">
+                <span class="dir-arrow">&#8594;</span> East
+              </div>
+              <div class="stat-num" id="stat-east">0</div>
+            </div>
+            <div class="stat-card ew">
+              <div class="stat-dir">
+                <span class="dir-arrow">&#8592;</span> West
+              </div>
+              <div class="stat-num" id="stat-west">0</div>
+            </div>
+          </div>
+          <div class="total-bar">
+            <span>Total passed</span>
+            <span class="total-num" id="stat-total">0</span>
+          </div>
+          <div class="balance-bar-wrap">
+            <div class="balance-label"><span style="color:var(--ns)">NS</span> vs <span style="color:var(--ew)">EW</span></div>
+            <div class="balance-bar">
+              <div class="balance-ns" id="balance-ns"></div>
+              <div class="balance-ew" id="balance-ew"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Signal Phase -->
+        <div class="panel-block">
+          <div class="panel-title">Signal Phase</div>
+          <div class="phase-display">
+            <div class="phase-row" id="ns-phase-row">
+              <div class="phase-dir">N &#x2195; S</div>
+              <div class="light-pair">
+                <div class="bulb red" id="ns-red"></div>
+                <div class="bulb green" id="ns-green"></div>
+              </div>
+              <div class="phase-state" id="ns-state">GREEN</div>
+            </div>
+            <div class="phase-row" id="ew-phase-row">
+              <div class="phase-dir">E &#x2194; W</div>
+              <div class="light-pair">
+                <div class="bulb red" id="ew-red"></div>
+                <div class="bulb green" id="ew-green"></div>
+              </div>
+              <div class="phase-state" id="ew-state">RED</div>
+            </div>
+          </div>
+          <div class="phase-timer-wrap">
+            <div class="phase-timer-label">Next switch in</div>
+            <div class="phase-countdown" id="countdown">5.0s</div>
+            <div class="phase-progress-bar">
+              <div class="phase-progress-fill" id="phase-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="panel-block">
+          <div class="panel-title">Controls</div>
+          <div class="controls-grid">
+            <button class="ctrl-btn active" id="btn-pause" onclick="togglePause()">&#9646;&#9646; Pause</button>
+            <button class="ctrl-btn" id="btn-speed" onclick="cycleSpeed()">&#9654; Normal</button>
+            <button class="ctrl-btn" onclick="resetSim()">&#8635; Reset</button>
+          </div>
+          <div class="speed-display">
+            <span class="speed-label">Sim speed</span>
+            <div class="speed-dots">
+              <div class="speed-dot active" id="spd0"></div>
+              <div class="speed-dot" id="spd1"></div>
+              <div class="speed-dot" id="spd2"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Log -->
+        <div class="panel-block log-block">
+          <div class="panel-title">Event Log</div>
+          <div id="log-list"></div>
+        </div>
+      </div>
+
+      <!-- Canvas -->
+      <div class="canvas-wrap">
+        <canvas id="road-canvas" width="520" height="520"></canvas>
+        <canvas id="anim-canvas" width="520" height="520"></canvas>
+        <div class="compass">
+          <div class="compass-n">N</div>
+          <div class="compass-e">E</div>
+          <div class="compass-s">S</div>
+          <div class="compass-w">W</div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="simulation.js"></script>
+</body>
+</html>
