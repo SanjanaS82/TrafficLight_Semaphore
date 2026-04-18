@@ -52,11 +52,10 @@ traffic-light/
 │   ├── main.c
 │   ├── member1_semaphore.c
 │   ├── member2_traffic.c
-│   ├── index.html          # Web UI entry point
-│   ├── simulation.js       # Traffic simulation logic
-│   └── style.css           # Styling for UI
+│   ├── index.html          
+│   ├── simulation.js       
+│   └── style.css           
 │
-├── traffic.exe             # Compiled executable (optional)
 ├── README.md
 └── Prblm_stmt.docx  
 ```
